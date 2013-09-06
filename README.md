@@ -81,6 +81,9 @@ In a controller
 // Get all the user info
 $this->get('illumina.abp.retriever')->getUserInfo(USER_TOKEN);
 
+// Get all the user contact info
+$this->get('illumina.abp.retriever')->getUserContactInfo(USER_TOKEN);
+
 //Get the current time on the API server
 $this->get('illumina.abp.retriever')->getTime();
 ```
