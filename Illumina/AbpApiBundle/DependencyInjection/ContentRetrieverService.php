@@ -49,15 +49,22 @@ class ContentRetrieverService {
         return $formattedResponse;
     }
 
-    public function buildUserUrl($requestPage)
+    public function buildUserUrl($requestPage, $request_type = ".json")
     {
-        $baseUrl = $this->siteBase.'/api/user/'.$requestPage;
-        return $baseUrl;
+        $baseUrl = $this->siteBase.'/api/users/'.$requestPage;
+        return $baseUrl.$request_type;
     }
 
     public function getUserInfo($userToken)
     {
         $url = $this->buildUserUrl('info');
+        die(print_r($url, true));
+        return $this->sendRequest($url,$this->container->get('illumina.abp.api')->generateSecureParams($userToken));
+    }
+
+    public function getContactInfo($userToken)
+    {
+        $url = $this->buildUserUrl('contacts');
 
         return $this->sendRequest($url,$this->container->get('illumina.abp.api')->generateSecureParams($userToken));
     }
