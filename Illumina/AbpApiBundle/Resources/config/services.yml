@@ -1,0 +1,7 @@
+services:
+    illumina.abp.retriever:
+        class:  Illumina\AbpApiBundle\DependencyInjection\ContentRetrieverService
+        arguments:  [ @service_container, %illumina_abp_base_url% , %illumina_abp_key% , %illumina_abp_secret% ]
+    illumina.abp.api:
+        class:  Illumina\AbpApiBundle\DependencyInjection\APILibrary
+        arguments:  [ @service_container, %illumina_abp_key% , %illumina_abp_secret% ]
