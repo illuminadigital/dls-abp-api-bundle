@@ -40,7 +40,6 @@ class APILibrary {
     public function generateSecureParams($userToken,$encoding='md5')
     {
         $timestampResponse = $this->container->get('illumina.abp.retriever')->getTime();
-
         if ($timestampResponse === null) {
             return false;
         }
